@@ -1,0 +1,2 @@
+Requirements:
+install miniconda3 for python3.7: https://docs.conda.io/en/latest/miniconda.html (64bit one for Linux assuming you have a 64bit distro)
