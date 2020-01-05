@@ -1,4 +1,4 @@
 #!/bin/bash
 set -exou pipefail
 
-conda install transformer
+conda install transformers
