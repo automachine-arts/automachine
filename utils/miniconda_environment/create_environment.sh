@@ -3,5 +3,4 @@ set -exou pipefail
 
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
-conda create -n tf tensorflow
-conda init bash
+conda create -n automachine tensorflow pytorch
