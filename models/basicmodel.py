@@ -1,7 +1,7 @@
 import numpy as np
 
-from keras.models import Sequential
-from keras.layers import Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 
 model = Sequential()
 model.add(Dense(1, input_dim=2))
