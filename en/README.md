@@ -38,6 +38,7 @@ Type "help", "copyright", "credits" or "license" for more information.
  Verify that both TensorFlow and PyTorch have been correctly installed. Follow the below steps in the python interactive shell:
 
  ```
+$ python
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
