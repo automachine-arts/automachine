@@ -11,7 +11,7 @@ Welcome to our rehearsal! :smile:
 
 ### Environment Setup
 
- For this workshop, we will be using the Python programming language as well as [TensorFlow](https://www.tensorflow.org) and [PyTorch](https://pytorch.org), two deep learning libraries developed for Python. To setup this programming environment, we will be using [Miniconda](https://docs.conda.io/projects/conda/en/latest/glossary.html#miniconda-glossary), a minimal version of [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html), that includes only `conda`, `Python`, the packages they depend on, and a small number of other useful packages. `conda` is a powerful package manager and environment manager that you use with command line commands in a terminal window.
+ For this workshop, we will be using the Python programming language as well as [TensorFlow](https://www.tensorflow.org) and [PyTorch](https://pytorch.org) (no need to install these from the website), two deep learning libraries developed for Python. To setup this programming environment, we will be using [Miniconda](https://docs.conda.io/projects/conda/en/latest/glossary.html#miniconda-glossary), a minimal version of [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html), that includes only `conda`, `Python`, the packages they depend on, and a small number of other useful packages. `conda` is a powerful package manager and environment manager that you use with command line commands in a terminal window.
 
  To install `conda`, follow the steps located [here](https://docs.conda.io/en/latest/miniconda.html). Once conda has been installed, open a new terminal and verify that it has been correctly installed by running `conda list` in your terminal. A list of packages should be shown.
 
@@ -54,5 +54,8 @@ tensor([[1, 2, 3],
 >>> x
 <tf.Tensor: id=0, shape=(2, 3), dtype=int32, numpy=array([[1, 2, 3],[4, 5, 6]], dtype=int32)>
  ```
+ 
+ 
+ To go back to the commandline, and get out of the python interpreter type `exit()`
 
  To remove the created conda environment, run `conda remove --name automachine --all` in your terminal.
