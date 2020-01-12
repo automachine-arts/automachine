@@ -1,3 +1,5 @@
+# TODO: License and extensive code commments
+
 import numpy as np
 
 from tensorflow.keras.models import Sequential
