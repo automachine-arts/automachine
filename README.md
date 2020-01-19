@@ -65,14 +65,28 @@ We will be making use of the `utils/` directory throughout the day.
 
 ```
 .
-├── advanced_techinques                <- at the end of the day
-│   └── nlp_transformer
-├── basic_demos                        <- morning content, note these ones are mostly to verify your environment config.
-├── introductory_model                 <- before lunch break
-├── README.md                          <- this file
-└── utils                              <- tools we'll be using throughout the day
-    ├── fetch_text.sh
-    └── README
+├── cheatsheets.txt                   # printed booklet content 
+├── how_to_train
+│   └── training_with_keras.py        # First Demo
+├── image_synthesis
+│   ├── deepdreams.py                 # Getting started with Visual Art
+│   ├── firstmodel.py
+│   └── setup_requirements.sh
+├── README.md                         # this file
+├── text_generation
+│   ├── finetune.sh
+│   ├── install_requirements.sh
+│   ├── main.py
+│   ├── pytorch_run_generation.py
+│   ├── run_generation.py
+│   └── run_generation.sh
+└── utils
+    ├── fetch_text.sh                  # Script Gather Text Content
+    ├── miniconda_environment          # Detail on the conda environment
+    │   ├── activate.sh
+    │   ├── create_environment.sh
+    │   └── README
+    └── README
 
 ```
 
