@@ -78,11 +78,11 @@ We will be making use of the `utils/` directory throughout the day.
 
 ### Environment Setup
 
- For this workshop, we will be using the Python programming language as well as [TensorFlow](https://www.tensorflow.org) and [PyTorch](https://pytorch.org), two deep learning libraries developed for Python. To setup this programming environment, we will be using [Miniconda](https://docs.conda.io/projects/conda/en/latest/glossary.html#miniconda-glossary), a minimal version of [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html), that includes only `conda`, `Python`, the packages they depend on, and a small number of other useful packages. `conda` is a powerful package manager and environment manager that you use with command line commands in a terminal window.
+ For this workshop, we will be using the Python programming language as well as TensorFlow and PyTorch, two deep learning libraries developed for Python. To setup this programming environment, we will be using [Miniconda](https://docs.conda.io/projects/conda/en/latest/glossary.html#miniconda-glossary), a minimal version of Conda, that includes only `conda`, `Python`, the packages they depend on, and a small number of other useful packages. `conda` is a powerful package manager and environment manager that you use with command line commands in a terminal window.
 
- To install `conda`, follow the steps located [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/#regular-installation). Once conda has been installed, verify that it has been correctly installed by running `conda list` in your terminal. A list of packages should be shown.
+ To install `conda`, [choose the version for your operating system](https://docs.conda.io/en/latest/miniconda.html). Once conda has been installed, verify that it has been correctly installed by running `conda list` in your terminal. A list of packages should be shown.
 
- The next step is to install Python, TensorFlow, and PyTorch in a conda "virtual environment". Virtual environments are self-contained programming environments that can have different versions of Python and/or packages installed in them. Switching or moving between environments is called activating the environment. After installing conda, it may need to be initialized by running `conda init bash` in your terminal window. By default, conda installs a base environment that has Python installed. In your terminal, run `conda activate` to activate this base environment. Verify that python has been installed by running `python` in your terminal. This will start the python interactive shell:
+ The next step is to install Python, TensorFlow, and PyTorch in a conda "virtual environment". Virtual environments are self-contained programming environments that can have different versions of Python and/or packages installed in them. Switching or moving between environments is called activating the environment. After installing conda, it may need to be initialized by running `conda init bash` (if you're not in windows) in your terminal window. By default, conda installs a base environment that has Python installed. In your terminal, run `conda activate` to activate this base environment. Verify that python has been installed by running `python` in your terminal. This will start the python interactive shell:
 
  ```
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
@@ -96,10 +96,10 @@ Type "help", "copyright", "credits" or "license" for more information.
  To install TensorFlow and PyTorch in a custom conda environment, follow these steps in your terminal:
 
  ```
- $ conda create -n automachine
- $ conda activate automachine
- $ conda install tensorflow
- $ conda install pytorch torchvision -c pytorch
+conda create -n automachine
+conda activate automachine
+conda install tensorflow
+conda install pytorch torchvision -c pytorch
  ```
 
  Verify that both TensorFlow and PyTorch have been correctly installed. Follow the below steps in the python interactive shell:
