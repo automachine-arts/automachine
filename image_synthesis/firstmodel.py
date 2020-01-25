@@ -15,7 +15,17 @@
 ################################################################################
 
 '''
-This tutorial contains a minimal implementation of DeepDream, as described in this blog post by Alexander Mordvintsev. DeepDream is an experiment that visualizes the patterns learned by a neural network. Similar to when a child watches clouds and tries to interpret random shapes, DeepDream over-interprets and enhances the patterns it sees in an image. It does so by forwarding an image through the network, then calculating the gradient of the image with respect to the activations of a particular layer. The image is then modified to increase these activations, enhancing the patterns seen by the network, and resulting in a dream-like image. This process was dubbed "Inceptionism" (a reference to InceptionNet, and the movie Inception). Let's demonstrate how you can make a neural network "dream" and enhance the surreal patterns it sees in an image.
+This tutorial contains a minimal implementation of DeepDream, as described in this 
+blog post by Alexander Mordvintsev. DeepDream is an experiment that visualizes the 
+patterns learned by a neural network. Similar to when a child watches clouds and tries 
+to interpret random shapes, DeepDream over-interprets and enhances the patterns it sees 
+in an image. It does so by forwarding an image through the network, then calculating 
+the gradient of the image with respect to the activations of a particular layer. 
+The image is then modified to increase these activations, enhancing the patterns 
+seen by the network, and resulting in a dream-like image. 
+This process was dubbed "Inceptionism" (a reference to InceptionNet, and the movie Inception).
+Let's demonstrate how you can make a neural network "dream" and enhance 
+the surreal patterns it sees in an image.
 '''
 
 from __future__ import absolute_import, division, print_function, unicode_literals
@@ -57,14 +67,27 @@ original_img = download(url, max_dim=500)
 ################################################################################
 
 '''
-Download and prepare a pre-trained image classification model. You will use InceptionV3 which is similar to the model originally used in DeepDream. Note that any pre-trained model will work, although you will have to adjust the layer names below if you change this.
+Download and prepare a pre-trained image classification model. You will use InceptionV3 
+which is similar to the model originally used in DeepDream. Note that any pre-trained 
+model will work, although you will have to adjust the layer names below if you change this.
 '''
 base_model = tf.keras.applications.InceptionV3(include_top=False, weights='imagenet')
 
 '''
-The idea in DeepDream is to choose a layer (or layers) and maximize the "loss" in a way that the image increasingly "excites" the layers. The complexity of the features incorporated depends on layers chosen by you, i.e, lower layers produce strokes or simple patterns, while deeper layers give sophisticated features in images, or even whole objects.
+The idea in DeepDream is to choose a layer (or layers) and maximize the "loss" in a way 
+that the image increasingly "excites" the layers. The complexity of the features incorporated 
+depends on layers chosen by you, i.e, lower layers produce strokes or simple patterns, 
+while deeper layers give sophisticated features in images, or even whole objects.
 
-The InceptionV3 architecture is quite large (for a graph of the model architecture see TensorFlow's research repo). For DeepDream, the layers of interest are those where the convolutions are concatenated. There are 11 of these layers in InceptionV3, named 'mixed0' though 'mixed10'. Using different layers will result in different dream-like images. Deeper layers respond to higher-level features (such as eyes and faces), while earlier layers respond to simpler features (such as edges, shapes, and textures). Feel free to experiment with the layers selected below, but keep in mind that deeper layers (those with a higher index) will take longer to train on since the gradient computation is deeper.
+The InceptionV3 architecture is quite large (for a graph of the model architecture 
+see TensorFlow's research repo). For DeepDream, the layers of interest are those 
+where the convolutions are concatenated. There are 11 of these layers in InceptionV3, 
+named 'mixed0' though 'mixed10'. Using different layers will result in different 
+dream-like images. Deeper layers respond to higher-level features (such as eyes and faces), 
+while earlier layers respond to simpler features (such as edges, shapes, and textures). 
+Feel free to experiment with the layers selected below, but keep in mind that deeper 
+layers (those with a higher index) will take longer to train on since the gradient 
+computation is deeper.
 '''
 
 # Maximize the activations of these layers
@@ -80,7 +103,10 @@ dream_model = tf.keras.Model(inputs=base_model.input, outputs=layers)
 ################################################################################
 
 '''
-The loss is the sum of the activations in the chosen layers. The loss is normalized at each layer so the contribution from larger layers does not outweigh smaller layers. Normally, loss is a quantity you wish to minimize via gradient descent. In DeepDream, you will maximize this loss via gradient ascent.
+The loss is the sum of the activations in the chosen layers. The loss is normalized 
+at each layer so the contribution from larger layers does not outweigh smaller layers. 
+Normally, loss is a quantity you wish to minimize via gradient descent. In DeepDream,
+ you will maximize this loss via gradient ascent.
 '''
 
 def calc_loss(img, model):
@@ -100,9 +126,14 @@ def calc_loss(img, model):
 #                            Gradient ascent                                   #
 ################################################################################
 '''
-Once you have calculated the loss for the chosen layers, all that is left is to calculate the gradients with respect to the image, and add them to the original image.
-Adding the gradients to the image enhances the patterns seen by the network. At each step, you will have created an image that increasingly excites the activations of certain layers in the network.
-The method that does this, below, is wrapped in a tf.function for performance. It uses an input_signature to ensure that the function is not retraced for different image sizes or steps/step_size values. See the Concrete functions guide for details.
+Once you have calculated the loss for the chosen layers, all that is left is to 
+calculate the gradients with respect to the image, and add them to the original image.
+Adding the gradients to the image enhances the patterns seen by the network. At 
+each step, you will have created an image that increasingly excites the activations 
+of certain layers in the network.
+The method that does this, below, is wrapped in a tf.function for performance. 
+It uses an input_signature to ensure that the function is not retraced for different 
+image sizes or steps/step_size values. See the Concrete functions guide for details.
 '''
 class DeepDream(tf.Module):
   def __init__(self, model):
