@@ -25,6 +25,7 @@ https://www.moma.org/artists/3528
 ### Rafael Lozano-Hemmer
 
 http://www.lozano-hemmer.com
+
 ### Mimi Onuoha
 
 http://mimionuoha.com/
