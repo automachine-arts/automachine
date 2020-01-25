@@ -12,8 +12,6 @@ Let us know if something should be added !
 
 ---
 
-
-
 ## Artists pages - Pages d'artistes
 
 ### Sarah Friend
@@ -33,13 +31,12 @@ http://mimionuoha.com/
 
 ### Anna Ridler
 
-http://annaridler.com/bloemenveiling
+http://annaridler.com/
 
 
 ### Tom White
 
-https://drib.net/about
-
+https://drib.net/
 
 
 ## Other art-side references - Autres références en arts
@@ -78,6 +75,8 @@ https://www.theverge.com/2018/8/21/17761424/ai-algorithm-art-machine-vision-perc
 
 Tom White. Perception Engines. https://medium.com/artists-and-machine-intelligence/perception-engines-8a46bc598d57. 2018.
 
+https://www.artnews.com/art-in-america/features/bots-ai-art-digital-commons-1202675976/
+
 ## Tech references - Références tech
 
 https://www.computerhistory.org/revolution/topics
@@ -85,7 +84,6 @@ https://www.computerhistory.org/revolution/topics
 http://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html
 
 http://raysolomonoff.com/dartmouth/
-
 
 https://deepmind.com/blog/article/alphago-zero-starting-scratch
 
@@ -105,6 +103,11 @@ https://gym.openai.com
 
 https://www.tensorflow.org/tutorials/generative/style_transfer
 
+https://keras.io
+
+https://www.tensorflow.org
+
+https://pytorch.org
 
 ## Tech books - livres tech
 
@@ -123,7 +126,7 @@ http://image-net.org
 
 https://archive.ics.uci.edu/ml/datasets.php
 
-
+https://datasetsearch.research.google.com
 
 
 
