@@ -1,7 +1,4 @@
 
-
-# WIP Check Back Later
-
 ## Introduction
 
 Hello, this is the source repository for the AI applications for Art workshop held Feb 8th at Eastern bloc, Montreal. Content will be French and English.
