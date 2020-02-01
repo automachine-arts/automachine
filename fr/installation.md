@@ -13,6 +13,7 @@
         conda install pytorch torchvision -c pytorch    
         conda install transformers -c conda-forge
 
+---
 
 ## Informations complètes
 
@@ -77,6 +78,8 @@ Maintenant, nous allons sortir de l'interprète Python: entrez `exit()` et appuy
 Finalement, nous installons Transformers en exécutant dans la fenêtre Terminal la commande suivante:
 
         conda install transformers -c conda-forge
+
+---
 
 ## Désinstaller
 
