@@ -80,7 +80,6 @@ Finalement, nous installons Transformers en exécutant dans la fenêtre Terminal
         conda install transformers -c conda-forge
 
 ---
-
 ## Désinstaller
 
 Après l'atelier, si vous désirez ne plus avoir d'environnement virtuel sur votre ordinateur, il suffira d'effacer cet environnement avec la commande de terminal  `conda remove --name automachine --all`.
