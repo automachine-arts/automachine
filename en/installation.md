@@ -47,6 +47,7 @@ conda create -n automachine
 conda activate automachine
 conda install tensorflow
 conda install pytorch torchvision -c pytorch
+conda install transformers -c conda-forge
  ```
 
  Verify that both TensorFlow and PyTorch have been correctly installed by first launching Python in a Terminal window. Then, enter the following code : `import torch` and after,`import tensorflow as tf`. You will create variables by entering the following code in the Terminal window:
