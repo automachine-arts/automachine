@@ -41,6 +41,7 @@ conda create -n automachine
 conda activate automachine
 conda install tensorflow
 conda install pytorch torchvision -c pytorch
+conda install transformers -c conda-forge
  ```
 
  Verify that both TensorFlow and PyTorch have been correctly installed. Follow the below steps in the python interactive shell:
