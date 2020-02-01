@@ -25,11 +25,11 @@ Installation - in brief
 
  To install `miniconda`, [choose the version for your operating system](https://docs.conda.io/en/latest/miniconda.html). Once miniconda has been installed, verify that it has been correctly installed by running `conda list` in your terminal. A list of packages should be shown.
 
- The next step is to install Python, TensorFlow, and PyTorch in a miniconda "virtual environment".
+ The next step is to install Python, TensorFlow, and PyTorch in a `miniconda` "virtual environment".
  
 Virtual environments are self-contained programming environments that can have different versions of Python and/or packages installed in them. Switching or moving between environments is called activating the environment. 
 
-After installing conda, it may need to be initialized by running `conda init bash` (if you're not in windows) in your terminal window. By default, conda installs a base environment that has Python installed. In your terminal, run `conda activate` to activate this base environment. Verify that python has been installed by running `python` in your terminal. This will start the python interactive shell:
+After installing conda, it may need to be initialized by running `conda init bash` (if you're not in windows) in your terminal window. By default, miniconda installs a base environment that has Python installed. In your terminal, run `conda activate` to activate this base environment. Verify that Python has been installed by running `python` in your terminal. This will start the Python interactive shell:
 
  ```
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
