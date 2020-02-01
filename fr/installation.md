@@ -40,10 +40,10 @@ Pour sortir de l'interaction avec Python, exécutez la commande `exit()`.
 Pour installer TensorFlow et PyTorch dans un environnement spécifique, nommé 'automachine', suivez les étapes suivantes dans votre terminal:
 
  ```
- $ conda create -n automachine
- $ conda activate automachine
- $ conda install tensorflow
- $ conda install pytorch torchvision -c pytorch
+conda create -n automachine
+conda activate automachine
+conda install tensorflow
+conda install pytorch torchvision -c pytorch
  ```
 
 Vérifiez que TensorFlow et PyTorch ont bel et bien été installés en suivant les étapes suivantes. Commencez par lancer Python à partir de la fenêtre de terminal. Ensuite, nous allons importer PyTorch avec la ligne de code `import torch`, et de même pour TensorFlow avec `import tensorflow as tf`. Ensuite, créez des variables en entrant le code suivant dans la fenêtre Terminal:
