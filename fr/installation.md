@@ -80,7 +80,7 @@ Finalement, nous installons Transformers en exécutant dans la fenêtre Terminal
 
 ## Désinstaller
 
-après de l'atelier, si vous désirez ne plus avoir d'environnement virtuel sur votre ordinateur, il suffira d'effacer cet environnement avec la commande de terminal  `conda remove --name automachine --all`.
+Après l'atelier, si vous désirez ne plus avoir d'environnement virtuel sur votre ordinateur, il suffira d'effacer cet environnement avec la commande de terminal  `conda remove --name automachine --all`.
 
 Pour désinstaller miniconda, voici la documentation officielle: http://docs.continuum.io/anaconda/install.html#id6
 
