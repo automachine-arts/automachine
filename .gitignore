@@ -1,3 +1,5 @@
 *.sw[a-z]
 .DS_Store
 .vscode
+
+*.pdf
