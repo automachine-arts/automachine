@@ -63,6 +63,9 @@ import argparse
 
 from tensorflow.keras.applications import inception_v3
 from tensorflow.keras import backend as K
+from tensorflow.python.framework.ops import disable_eager_execution
+
+disable_eager_execution()
 
 parser = argparse.ArgumentParser(description='Deep Dreams with Keras.')
 parser.add_argument('base_image_path', metavar='base', type=str,

@@ -3,3 +3,7 @@
 .vscode
 
 *.pdf
+
+*.jpg
+*.png
+*.xcf
