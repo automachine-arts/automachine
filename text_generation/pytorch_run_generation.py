@@ -132,8 +132,8 @@ def main():
     set_seed(args)
 
     # this can be changed to simply "gpt2-medium" to download a new copy of the model state
-    tokenizer = GPT2Tokenizer.from_pretrained("/mnt/usb/models/gpt2-medium")
-    model = GPT2LMHeadModel.from_pretrained("/mnt/usb/models/gpt2-medium/")
+    tokenizer = GPT2Tokenizer.from_pretrained("output/")
+    model = GPT2LMHeadModel.from_pretrained("output/")
     model.to(args.device)
     model.eval()
 
