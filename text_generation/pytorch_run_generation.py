@@ -24,16 +24,10 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 
-from transformers import GPT2Config, OpenAIGPTConfig
+from transformers import GPT2Config
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
-from transformers import OpenAIGPTLMHeadModel, OpenAIGPTTokenizer
 
 MAX_LENGTH = int(10000)  # Hardcoded max length to avoid infinite loop
-ALL_MODELS = sum((tuple(conf.pretrained_config_archive_map.keys()) for conf in (GPT2Config, OpenAIGPTConfig)), ())
-MODEL_CLASSES = {
-    'gpt2': (GPT2LMHeadModel, GPT2Tokenizer),
-    'openai-gpt': (OpenAIGPTLMHeadModel, OpenAIGPTTokenizer),
-}
 
 # Padding text to help Transformer-XL and XLNet with short prompts as proposed by Aman Rusia
 # in https://github.com/rusiaaman/XLNet-gen#methodology
@@ -137,9 +131,9 @@ def main():
 
     set_seed(args)
 
-    model_class, tokenizer_class = MODEL_CLASSES["gpt2"]
-    tokenizer = tokenizer_class.from_pretrained("gpt2")
-    model = model_class.from_pretrained("gpt2")
+    # this can be changed to simply "gpt2-medium" to download a new copy of the model state
+    tokenizer = GPT2Tokenizer.from_pretrained("/mnt/usb/models/gpt2-medium")
+    model = GPT2LMHeadModel.from_pretrained("/mnt/usb/models/gpt2-medium/")
     model.to(args.device)
     model.eval()
 
