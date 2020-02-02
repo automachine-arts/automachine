@@ -21,6 +21,8 @@ using a masked language modeling (MLM) loss.
 
 from __future__ import absolute_import, division, print_function
 
+MODEL_PATH = "usb_key/models/gpt2-small/"
+
 import argparse
 import glob
 import logging
@@ -439,10 +441,10 @@ def main():
     if args.local_rank not in [-1, 0]:
         torch.distributed.barrier()  # Barrier to make sure only the first process in distributed training download model & vocab
 
-    config = GPT2Config.from_pretrained("/mnt/usb/models/gpt2-small")
-    tokenizer = GPT2Tokenizer.from_pretrained("/mnt/usb/models/gpt2-small", do_lower_case=args.do_lower_case)
+    config = GPT2Config.from_pretrained(MODEL_PATH)
+    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH, do_lower_case=args.do_lower_case)
     args.block_size = min(args.block_size, tokenizer.max_len_single_sentence)
-    model = GPT2LMHeadModel.from_pretrained("/mnt/usb/models/gpt2-small", config=config)
+    model = GPT2LMHeadModel.from_pretrained(MODEL_PATH, config=config)
     model.to(args.device)
 
     if args.local_rank == 0:
