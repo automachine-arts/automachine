@@ -7,3 +7,7 @@
 *.jpg
 *.png
 *.xcf
+
+/text_generation/usb_key/*
+
+/text_generation/output/*
