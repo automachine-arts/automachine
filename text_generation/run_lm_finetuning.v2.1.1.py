@@ -184,6 +184,15 @@ def train(args, train_dataset, model, tokenizer):
                                                           output_device=args.local_rank,
                                                           find_unused_parameters=True)
 
+    # Only train the head of the model for improved mem and speed
+    for param in model.parameters():
+      print("Param:", type(param))
+      param.requires_grad = False
+    
+    for param in model.lm_head.parameters():
+      print("lm head Param:", type(param))
+      param.requires_grad = True
+
     # Train!
     logger.info("***** Running training *****")
     logger.info("  Num examples = %d", len(train_dataset))
@@ -439,10 +448,10 @@ def main():
     if args.local_rank not in [-1, 0]:
         torch.distributed.barrier()  # Barrier to make sure only the first process in distributed training download model & vocab
 
-    config = GPT2Config.from_pretrained("/mnt/usb/models/gpt2-small")
-    tokenizer = GPT2Tokenizer.from_pretrained("/mnt/usb/models/gpt2-small", do_lower_case=args.do_lower_case)
+    config = GPT2Config.from_pretrained(MODEL_PATH)
+    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH, do_lower_case=args.do_lower_case)
     args.block_size = min(args.block_size, tokenizer.max_len_single_sentence)
-    model = GPT2LMHeadModel.from_pretrained("/mnt/usb/models/gpt2-small", config=config)
+    model = GPT2LMHeadModel.from_pretrained(MODEL_PATH, config=config)
     model.to(args.device)
 
     if args.local_rank == 0:
@@ -481,8 +490,8 @@ def main():
         torch.save(args, os.path.join(args.output_dir, 'training_args.bin'))
 
         # Load a trained model and vocabulary that you have fine-tuned
-        model = model_class.from_pretrained(args.output_dir)
-        tokenizer = tokenizer_class.from_pretrained(args.output_dir, do_lower_case=args.do_lower_case)
+        model = GPT2LMHeadModel.from_pretrained(args.output_dir)
+        tokenizer = GPT2Tokenizer.from_pretrained(args.output_dir, do_lower_case=args.do_lower_case)
         model.to(args.device)
 
 
@@ -498,7 +507,7 @@ def main():
             global_step = checkpoint.split('-')[-1] if len(checkpoints) > 1 else ""
             prefix = checkpoint.split('/')[-1] if checkpoint.find('checkpoint') != -1 else ""
             
-            model = model_class.from_pretrained(checkpoint)
+            model = GPT2LMHeadModel.from_pretrained(checkpoint)
             model.to(args.device)
             result = evaluate(args, model, tokenizer, prefix=prefix)
             result = dict((k + '_{}'.format(global_step), v) for k, v in result.items())
