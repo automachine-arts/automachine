@@ -21,6 +21,8 @@ using a masked language modeling (MLM) loss.
 
 from __future__ import absolute_import, division, print_function
 
+MODEL_PATH = "usb_key/models/gpt2-small/"
+
 import argparse
 import glob
 import logging
