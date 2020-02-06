@@ -43,10 +43,11 @@ from transformers import (WEIGHTS_NAME, AdamW, WarmupLinearSchedule,
 
 logger = logging.getLogger(__name__)
 
+MODEL_PATH = "/mnt/usb/models/gpt2-small"
 
 
 class TextDataset(Dataset):
-    def __init__(self, tokenizer, file_path='train', block_size=512):
+    def __init__(self, tokenizer, file_path, block_size):
         assert os.path.isfile(file_path)
         directory, filename = os.path.split(file_path)
         cached_features_file = os.path.join(directory, 'cached_lm_' + str(block_size) + '_' + filename)
@@ -208,32 +209,29 @@ def train(args, train_dataset, model, tokenizer):
     model.zero_grad()
     train_iterator = trange(int(args.num_train_epochs), desc="Epoch", disable=args.local_rank not in [-1, 0])
     set_seed(args)  # Added here for reproducibility (even between python 2 and 3)
+    model.train()
     for _ in train_iterator:
-        epoch_iterator = tqdm(train_dataloader, desc="Iteration", disable=args.local_rank not in [-1, 0])
-        for step, batch in enumerate(epoch_iterator):
+        epoch_iterator = tqdm(list(zip(range(args.max_datapoints), train_dataloader)), desc="Iteration", disable=args.local_rank not in [-1, 0])
+        for step, batch in epoch_iterator:
             inputs, labels = mask_tokens(batch, tokenizer, args) if args.mlm else (batch, batch)
-            print("masked tokens")
-            inputs = inputs.to(args.device)
-            labels = labels.to(args.device)
-            print("sent to device")
-            model.train()
-            print("training")
+            if str(args.device) != "cpu":
+              inputs = inputs.to(args.device)
+              labels = labels.to(args.device)
             outputs = model(inputs, labels=labels)
-            print("got outputs")
             loss = outputs[0]  # model outputs are always tuple in transformers (see doc)
 
-            if args.n_gpu > 1:
-                loss = loss.mean()  # mean() to average on multi-gpu parallel training
-            if args.gradient_accumulation_steps > 1:
-                loss = loss / args.gradient_accumulation_steps
+            #if args.n_gpu > 1:
+            #    loss = loss.mean()  # mean() to average on multi-gpu parallel training
+            #if args.gradient_accumulation_steps > 1:
+            #    loss = loss / args.gradient_accumulation_steps
 
-            if args.fp16:
-                with amp.scale_loss(loss, optimizer) as scaled_loss:
-                    scaled_loss.backward()
-            else:
-                loss.backward()
+            #if args.fp16:
+            #   with amp.scale_loss(loss, optimizer) as scaled_loss:
+            #       scaled_loss.backward()
+            #else:
+            loss.backward()
 
-            tr_loss += loss.item()
+            #tr_loss += loss.item()
             if (step + 1) % args.gradient_accumulation_steps == 0:
                 if args.fp16:
                     torch.nn.utils.clip_grad_norm_(amp.master_params(optimizer), args.max_grad_norm)
@@ -243,7 +241,6 @@ def train(args, train_dataset, model, tokenizer):
                 scheduler.step()  # Update learning rate schedule
                 model.zero_grad()
                 global_step += 1
-                print("Step ", global_step)
 
 #                if args.local_rank in [-1, 0] and args.logging_steps > 0 and global_step % args.logging_steps == 0:
 #                    # Log metrics
@@ -363,9 +360,11 @@ def main():
                         help="Batch size per GPU/CPU for training.")
     parser.add_argument("--per_gpu_eval_batch_size", default=4, type=int,
                         help="Batch size per GPU/CPU for evaluation.")
+    parser.add_argument("--max_datapoints", default=100, type=int,
+                        help="Cap of the amount of data to use for training.")
     parser.add_argument('--gradient_accumulation_steps', type=int, default=1,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
-    parser.add_argument("--learning_rate", default=5e-5, type=float,
+    parser.add_argument("--learning_rate", default=5e-4, type=float,
                         help="The initial learning rate for Adam.")
     parser.add_argument("--weight_decay", default=0.0, type=float,
                         help="Weight deay if we apply some.")
