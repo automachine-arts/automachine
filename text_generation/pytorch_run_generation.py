@@ -28,6 +28,7 @@ from transformers import GPT2Config
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 MAX_LENGTH = int(10000)  # Hardcoded max length to avoid infinite loop
+MODEL_PATH = /mnt/usb/models/gpt2-medium
 
 # Padding text to help Transformer-XL and XLNet with short prompts as proposed by Aman Rusia
 # in https://github.com/rusiaaman/XLNet-gen#methodology
@@ -112,7 +113,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--prompt", type=str, default="")
     parser.add_argument("--padding_text", type=str, default="")
-    parser.add_argument("--length", type=int, default=20)
+    parser.add_argument("--length", type=int, default=50)
     parser.add_argument("--num_samples", type=int, default=1)
     parser.add_argument("--temperature", type=float, default=1.0,
                         help="temperature of 0 implies greedy sampling")
@@ -132,8 +133,8 @@ def main():
     set_seed(args)
 
     # this can be changed to simply "gpt2-medium" to download a new copy of the model state
-    tokenizer = GPT2Tokenizer.from_pretrained("/mnt/usb/models/gpt2-medium")
-    model = GPT2LMHeadModel.from_pretrained("/mnt/usb/models/gpt2-medium/")
+    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH)
+    model = GPT2LMHeadModel.from_pretrained(MODEL_PATH)
     model.to(args.device)
     model.eval()
 
