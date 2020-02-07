@@ -44,51 +44,52 @@ https://drib.net/
 
 ### Collectives - collectifs
 
-https://aiartists.org
+Page regroupant plusieurs artistes s'intéressant à l'intelligence artificielle: https://aiartists.org
 
-https://deepart.io/page/about/
+Exemple de site utilisant des algorithmes d'apprentissage machine pour générer des images : https://deepart.io/page/about/
 
 ### Essays - essais
 
-https://aiartists.org/ai-timeline-art
+Historique de l'IA et des arts: https://aiartists.org/ai-timeline-art
 
-https://thegradient.pub/the-past-present-and-future-of-ai-art/
+Essai de Fabian Offert sur l'histoire de l'art et de l'IA: https://thegradient.pub/the-past-present-and-future-of-ai-art/
 
-https://www.smithsonianmag.com/history/there-never-was-real-tulip-fever-180964915/
+Essai historique sur la Tulip Mania: https://www.smithsonianmag.com/history/there-never-was-real-tulip-fever-180964915/
 
-https://www.excavating.ai
+Essai écrit par les artistes derrière ImageNet Roulette, au sujet des biais en IA: https://www.excavating.ai
 
-https://medium.com/@elluba
+Site Medium (plateforme de blogues) de Luba Elliott, sur la créativité et l'IA : https://medium.com/@elluba
 
-http://nautil.us/issue/79/catalysts
+Numéro de Nautilus, un magazine, avec un chapitre portant sur l'IA et les arts: http://nautil.us/issue/79/catalysts
 
-https://www.e-flux.com/journal/101/273221/three-thousand-years-of-algorithmic-rituals-the-emergence-of-ai-from-the-computation-of-space/
+Matteo Pasquinelli se prononce sur l'IA et les arts dans e-flux : https://www.e-flux.com/journal/101/273221/three-thousand-years-of-algorithmic-rituals-the-emergence-of-ai-from-the-computation-of-space/
 
-https://medium.com/@kcimc/discrete-figures-7d9e9c275c47
+Essai de Kyle McDonald sur l'apprentissage machine et la danse: https://medium.com/@kcimc/discrete-figures-7d9e9c275c47
 
-https://www.liberation.fr/futurs/2019/11/17/new-fake-et-vieilles-ficelles_1763934
+Article de Libération sur les deep fakes : https://www.liberation.fr/futurs/2019/11/17/new-fake-et-vieilles-ficelles_1763934
 
-https://www.itsnicethat.com/features/how-art-holds-artificial-intelligence-to-account-digital-art-041219
+Article sur le rôle critique que peut jouer l'art pour l'IA, par Daphne Milner: https://www.itsnicethat.com/features/how-art-holds-artificial-intelligence-to-account-digital-art-041219
 
-https://aeon.co/ideas/if-machines-want-to-make-art-will-humans-understand-it
+Dans Aeon, article sur la possibilité pour l'humain de comprendre l'art machine: https://aeon.co/ideas/if-machines-want-to-make-art-will-humans-understand-it
 
-https://www.theverge.com/2018/8/21/17761424/ai-algorithm-art-machine-vision-perception-tom-white-treachery-imagenet
+Par James Vincent, article principalement sur Tom White et le "algorithmic gaze": https://www.theverge.com/2018/8/21/17761424/ai-algorithm-art-machine-vision-perception-tom-white-treachery-imagenet
 
-Tom White. Perception Engines. https://medium.com/artists-and-machine-intelligence/perception-engines-8a46bc598d57. 2018.
+Essai de Tom White sur ses Perception Engines. https://medium.com/artists-and-machine-intelligence/perception-engines-8a46bc598d57. 2018.
 
-https://www.artnews.com/art-in-america/features/bots-ai-art-digital-commons-1202675976/
+Essai constrastant l'art utilisant des bots avec l'art utilisant des IAs: https://www.artnews.com/art-in-america/features/bots-ai-art-digital-commons-1202675976/
 
 ## Tech references - Références tech
 
-https://www.computerhistory.org/revolution/topics
+Petite histoire de la révolution informatique, tel que raconté par le musée américain de l'Histoire de l'Ordinateur: https://www.computerhistory.org/revolution/topics
 
-http://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html
+Notes historiques sur la première conférence sur l'IA: http://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html
 
+Archives personnelles recensant la première conférence sur l'IA:
 http://raysolomonoff.com/dartmouth/
 
-https://deepmind.com/blog/article/alphago-zero-starting-scratch
+Article de DeepMind discutant des avancées pour la résolution du jeu de Go: https://deepmind.com/blog/article/alphago-zero-starting-scratch
 
-https://neurips2019creativity.github.io
+Lien vers l'édition 2019 du NeurIPS workshop for creativit: https://neurips2019creativity.github.io
 
 B. Jack Copeland. “The Church-Turing Thesis”. In: The Stanford Encyclopedia of Philosophy. Ed. by Edward N. Zalta. Spring 2019. Metaphysics Research Lab, Stanford University, 2019.
 
@@ -98,6 +99,7 @@ A. M. TURING. “I.—COMPUTING MACHINERY AND INTELLIGENCE”. In: Mind LIX.236 
 
 ## Libraries (programming) - bibliothèques (programmation)
 
+Bibliothèque informatique d'apprentissage par renforcement:
 https://gym.openai.com
 
 ## Tutorials - tutoriels
