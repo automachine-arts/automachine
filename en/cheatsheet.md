@@ -65,39 +65,40 @@
 
 ## Variables
 
-```  
-    # creates a new variable called 'x' with a value of 3.
+Creates a new variable called 'x' with a value of 3:
+    
     x = 3 
 
-    # creates a new variable called 'x' that is a Tensor (3d or more matrix)
+Creates a new variable called 'x' that is a Tensor (3d or more matrix):
+
     x = Tensor() 
-```
+
 
 ## Functions
 
-```    
-    # creates a new function that takes two parameters, 'my' and 'variables'
-    def myfunction(my, variables) 
+Creates a new function that takes two parameters, 'my' and 'variables':
+    
+    def myfunction(my, variables) :
       x = 3 + 5
       return x # give back the result of the calculation
 
-    # takes the object 'x' and calls it's function 'train' with 'data'
-    # parameters
+Takes the object 'x' and calls it's function 'train' with 'data' parameters:
+    
     x.train(data) 
-```
+
   
-  ## Imports
+## Imports
       
       from <PACKAGE> import <FUNCTION OR OBJECT>
       
-      # is is declared at the beginning of the file so
+It is declared at the beginning of the file so
     that the python interpreter is able to find the required code to execute your program.
 
-  ## Indexing
+## Indexing
   
     data[start:end]
     
-    # select entries from a list, tensor, array, or datastructure from the start up to
+Select entries from a list, tensor, array, or datastructure from the start up to
     but not including the end.
 
 
