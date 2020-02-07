@@ -18,22 +18,15 @@ Fine-tuning the library models for language modeling on a text file (GPT, GPT-2,
 GPT and GPT-2 are fine-tuned using a causal language modeling (CLM) loss while BERT and RoBERTa are fine-tuned
 using a masked language modeling (MLM) loss.
 """
-
-from __future__ import absolute_import, division, print_function
-
 import argparse
-import glob
 import logging
 import os
 import pickle
 import random
-import re
-import shutil
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, Dataset, SequentialSampler, RandomSampler
-from torch.utils.data.distributed import DistributedSampler
+from torch.utils.data import DataLoader, Dataset, RandomSampler
 
 from tqdm import tqdm, trange
 
@@ -146,7 +139,7 @@ def train(args, train_dataset, model, tokenizer):
     # Only train the head of the model for improved mem and speed
     for param in model.parameters():
       param.requires_grad = False
-    
+
     for param in model.lm_head.parameters():
       param.requires_grad = True
 
@@ -155,8 +148,8 @@ def train(args, train_dataset, model, tokenizer):
     logger.info("  Num examples = %d", len(train_dataset))
     logger.info("  Num Epochs = %d", args.num_train_epochs)
     logger.info("  Instantaneous batch size per GPU = %d", args.batch_size)
-    logger.info("  Total train batch size (w. parallel, distributed & accumulation) = %d",
-                   args.train_batch_size * args.gradient_accumulation_steps * (torch.distributed.get_world_size()))
+    logger.info("  Total train batch size (w. parallel & accumulation) = %d",
+                   args.train_batch_size * args.gradient_accumulation_steps )
     logger.info("  Gradient Accumulation steps = %d", args.gradient_accumulation_steps)
     logger.info("  Total optimization steps = %d", t_total)
 
@@ -229,11 +222,11 @@ def main():
 
     parser.add_argument("--batch_size", default=1, type=int,
                         help="Batch size per GPU/CPU for training.")
-    parser.add_argument("--max_datapoints", default=100, type=int,
+    parser.add_argument("--max_datapoints", default=200, type=int,
                         help="Cap of the amount of data to use for training.")
     parser.add_argument('--gradient_accumulation_steps', type=int, default=5,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
-    parser.add_argument("--learning_rate", default=1e-4, type=float,
+    parser.add_argument("--learning_rate", default=3e-4, type=float,
                         help="The initial learning rate for Adam.")
     parser.add_argument("--weight_decay", default=0.0, type=float,
                         help="Weight deay if we apply some.")
@@ -248,8 +241,6 @@ def main():
 
     parser.add_argument("--no_cuda", action='store_true',
                         help="Avoid using CUDA when available")
-    parser.add_argument('--overwrite_output_dir', action='store_true',
-                        help="Overwrite the content of the output directory")
     parser.add_argument('--seed', type=int, default=42,
                         help="random seed for initialization")
 
@@ -260,8 +251,8 @@ def main():
                              "See details at https://nvidia.github.io/apex/amp.html")
     args = parser.parse_args()
 
-    if os.path.exists(args.output_dir) and os.listdir(args.output_dir) and not args.overwrite_output_dir:
-        raise ValueError("Output directory ({}) already exists and is not empty. Use --overwrite_output_dir to overcome.".format(args.output_dir))
+    if os.path.exists(args.output_dir) and os.listdir(args.output_dir):
+        logger.warning("WARNING: Output directory ({}) already exists and is not empty. Overwriting.".format(args.output_dir))
 
     device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
     args.n_gpu = torch.cuda.device_count()
@@ -273,8 +264,6 @@ def main():
                         level = logging.INFO)
     logger.warning("device: %s, n_gpu: %s, 16-bits training: %s",
                     device, args.n_gpu, args.fp16)
-
-    # Set seed
     set_seed(args)
 
     config = GPT2Config.from_pretrained(args.model_path)
@@ -284,10 +273,7 @@ def main():
     model.to(args.device)
 
     logger.info("Training parameters %s", args)
-
-    # Training
     train_dataset = load_and_cache_examples(args, tokenizer)
-
     global_step, tr_loss = train(args, train_dataset, model, tokenizer)
     logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
 
@@ -299,17 +285,12 @@ def main():
     logger.info("Saving model checkpoint to %s", args.output_dir)
     # Save a trained model, configuration and tokenizer using `save_pretrained()`.
     # They can then be reloaded using `from_pretrained()`
-    model_to_save = model.module if hasattr(model, 'module') else model  # Take care of distributed/parallel training
+    model_to_save = model.module if hasattr(model, 'module') else model
     model_to_save.save_pretrained(args.output_dir)
     tokenizer.save_pretrained(args.output_dir)
 
     # Good practice: save your training arguments together with the trained model
     torch.save(args, os.path.join(args.output_dir, 'training_args.bin'))
-
-    # Load a trained model and vocabulary that you have fine-tuned
-    model = GPT2LMHeadModel.from_pretrained(args.output_dir)
-    tokenizer = GPT2Tokenizer.from_pretrained(args.output_dir, do_lower_case=args.do_lower_case)
-    model.to(args.device)
 
 if __name__ == "__main__":
     main()
