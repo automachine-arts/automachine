@@ -1,25 +1,25 @@
 # Commandes pratiques pour le Terminal
 
   `<TAB>` : permet l'autocomplétion d'un mot que l'on a commencé à écrire. par exemple, si on souhaite se déplacer
-  vers un nouveau dossier appelé "automachine" et que l'on tape "cd auto<TAB>", on obtiendra "cd automachine" de façon
+  vers un nouveau dossier appelé "automachine" et que l'on tape "cd auto`<TAB>`", on obtiendra "cd automachine" de façon
   automatique.
   
   `<UP ARROW>` : appuyer sur la flèche vers le haut permet d'afficher la ou les commandes précédemment entré es.
   
-  ## Windows
+## Windows
 
-    `dir` : affiche dans le Terminal la liste des fichiers dans le dossier actif
+  `dir` : affiche dans le Terminal la liste des fichiers dans le dossier actif
 
-    `cd <FOLDER NAME>` : permet d'accéder au dossier se nommant <FOLDER NAME>
+  `cd <FOLDER NAME>` : permet d'accéder au dossier se nommant `<FOLDER NAME>`
 
 
-  ## Linux/Mac OSX
+## Linux/Mac OSX
 
-    `ls` : affiche dans le Terminal la liste des fichiers dans le dossier actif
+  `ls` : affiche dans le Terminal la liste des fichiers dans le dossier actif
 
-    `cd` <FOLDER NAME> : permet d'accéder au dossier se nommant <FOLDER NAME>
+  `cd <FOLDER NAME>` : permet d'accéder au dossier se nommant `<FOLDER NAME>`
 
-    `sh` <SCRIPT>.sh : exécute le script <SCRIPT>.sh
+  `sh <SCRIPT>.sh` : exécute le script `<SCRIPT>.sh`
 
 
 # Commandes GIT
@@ -62,38 +62,40 @@
 
 # Concepts Python
 
-  Commentaires: tout ce qui suit un symbole '#' est destiné à la lecture humaine, et non pour la lecture machine.
+## Commentaires
+  
+  Tout ce qui suit un symbole '#' est destiné à la lecture humaine, et non pour la lecture machine.
 
-  ## Variables
+## Variables
 
-    # 1. crée une nouvelle variable se nommant 'x' et ayant une valeur de 3.  
+  Créer une nouvelle variable se nommant 'x' et ayant une valeur de 3:
 
     x = 3 
 
-    # 2. crée une nouvelle variable se nommant 'x' qui est un tensur (matrice de dimension 3 ou plus)
+  Créer une nouvelle variable se nommant 'x' qui est un tenseur (matrice de dimension 3 ou plus)
     
     x = Tensor() 
   
-  ## Fonctions
+## Fonctions
 
-    # 1. crée une nouvelle fonction prenant deux arguments, 'mes' et 'variables', qui retourne le résultat de l'addition de 3 et de 5.
+  Crée une nouvelle fonction prenant deux arguments, 'mes' et 'variables', qui retourne le résultat de l'addition de 3 et de 5.
 
     def mafonction(mes, variables): 
       x = 3 + 5
       return x
     
-    # 2. prend l'objet 'x' et appelle sa fonction 'train' en lui donnant l'argument 'data'.
+  Prend l'objet 'x' et appelle sa fonction 'train' en lui donnant l'argument 'data'.
     
     x.train(data) 
 
-  ## Imports
+## Imports
           
       from <PACKAGE> import <fUNCTION OR OBJECT> 
   
-      # est déclaré au début du fichier afin que l'interprète Python puisse trouver le code nécessaire à l'exécution du programme.
+  Une importation est déclarée au début du fichier afin que l'interprète Python puisse trouver le code nécessaire à l'exécution du programme.
 
-  ## Indexation
+## Indexation
   
       data[début:fin]
       
-      # sélectionne des éléments d'une liste, d'un tenseur, d'un tableau ou d'une autre structure de données à partir de 'début' mais sans inclure 'fin'.
+  L'indexaction permet de sélectionner des éléments d'une liste, d'un tenseur, d'un tableau ou d'une autre structure de données à partir de 'début' mais sans inclure 'fin'.
