@@ -59,10 +59,6 @@
 
   Validation Data : data that's available to train on, but we use it for testing instead
 
-  Neural Network Designs
-
-    Input Layer : This is usually 
-
 # Python Concepts
 
   Comments : everything after a '#' symbol is for the human to read, and not for the machine
@@ -89,10 +85,19 @@
     # parameters
     x.train(data) 
 ```
-  Imports : `from <PACKAGE> import <FUNCTION OR OBJECT>` # is is declared at the beginning of the file so
+  
+  ## Imports
+      
+      from <PACKAGE> import <FUNCTION OR OBJECT>
+      
+      # is is declared at the beginning of the file so
     that the python interpreter is able to find the required code to execute your program.
 
-  Indexing : `data[start:end]` # select entries from a list, tensor, array, or datastructure from the start up to
+  ## Indexing
+  
+    data[start:end]
+    
+    # select entries from a list, tensor, array, or datastructure from the start up to
     but not including the end.
 
 
