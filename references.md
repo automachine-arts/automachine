@@ -89,7 +89,7 @@ http://raysolomonoff.com/dartmouth/
 
 Article de DeepMind discutant des avancées pour la résolution du jeu de Go: https://deepmind.com/blog/article/alphago-zero-starting-scratch
 
-Lien vers l'édition 2019 du NeurIPS workshop for creativit: https://neurips2019creativity.github.io
+Lien vers l'édition 2019 du NeurIPS workshop for creativity: https://neurips2019creativity.github.io
 
 B. Jack Copeland. “The Church-Turing Thesis”. In: The Stanford Encyclopedia of Philosophy. Ed. by Edward N. Zalta. Spring 2019. Metaphysics Research Lab, Stanford University, 2019.
 
