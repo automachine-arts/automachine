@@ -28,7 +28,6 @@ from transformers import GPT2Config
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 MAX_LENGTH = int(10000)  # Hardcoded max length to avoid infinite loop
-MODEL_PATH = /mnt/usb/models/gpt2-medium
 
 # Padding text to help Transformer-XL and XLNet with short prompts as proposed by Aman Rusia
 # in https://github.com/rusiaaman/XLNet-gen#methodology
@@ -113,7 +112,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--prompt", type=str, default="")
     parser.add_argument("--padding_text", type=str, default="")
-    parser.add_argument("--length", type=int, default=50)
+    parser.add_argument("--words", type=int, default=50)
     parser.add_argument("--num_samples", type=int, default=1)
     parser.add_argument("--temperature", type=float, default=1.0,
                         help="temperature of 0 implies greedy sampling")
@@ -125,6 +124,8 @@ def main():
                         help="Avoid using CUDA when available")
     parser.add_argument('--seed', type=int, default=42,
                         help="random seed for initialization")
+    parser.add_argument("--model_path", type=str, default="/mnt/usb/models/gpt2-small",
+                        help="The location of the directory containing the model and associated files.")
     args = parser.parse_args()
 
     args.device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
@@ -133,17 +134,17 @@ def main():
     set_seed(args)
 
     # this can be changed to simply "gpt2-medium" to download a new copy of the model state
-    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH)
-    model = GPT2LMHeadModel.from_pretrained(MODEL_PATH)
+    tokenizer = GPT2Tokenizer.from_pretrained(args.model_path)
+    model = GPT2LMHeadModel.from_pretrained(args.model_path)
     model.to(args.device)
     model.eval()
 
-    if args.length < 0 and model.config.max_position_embeddings > 0:
-        args.length = model.config.max_position_embeddings
-    elif 0 < model.config.max_position_embeddings < args.length:
-        args.length = model.config.max_position_embeddings  # No generation bigger than model size 
-    elif args.length < 0:
-        args.length = MAX_LENGTH  # avoid infinite loop
+    if args.words < 0 and model.config.max_position_embeddings > 0:
+        args.words = model.config.max_position_embeddings
+    elif 0 < model.config.max_position_embeddings < args.words:
+        args.words = model.config.max_position_embeddings  # No generation bigger than model size 
+    elif args.words < 0:
+        args.words = MAX_LENGTH  # avoid infinite loop
 
     while True:
         raw_text = args.prompt if args.prompt else input("Model prompt >>> ")
@@ -152,7 +153,7 @@ def main():
             model=model,
             context=context_tokens,
             num_samples=args.num_samples,
-            length=args.length,
+            length=args.words,
             temperature=args.temperature,
             top_k=args.top_k,
             top_p=args.top_p,
