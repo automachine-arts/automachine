@@ -32,6 +32,14 @@ import PIL.Image
 import argparse
 
 
+parser = argparse.ArgumentParser(description='Deep Dreams with Keras.')
+parser.add_argument('--input_image_path', metavar='path', type=str,
+                    help='Path to the image to transform.', required=True)
+parser.add_argument('--output_filename', metavar='fname', type=str,
+                    help='Filename for the saved result.', required=True)
+
+args = parser.parse_args()
+
 ################################################################################
 #                       Choose an image to dreamify                            #
 ################################################################################
@@ -192,13 +200,6 @@ def run_deep_dream_simple(img, steps=100, step_size=0.01):
 
   return np.array(result)
 
-parser = argparse.ArgumentParser(description='Deep Dreams with Keras.')
-parser.add_argument('--input_image_path', metavar='path', type=str,
-                    help='Path to the image to transform.')
-parser.add_argument('--output_filename', metavar='fname', type=str,
-                    help='Filename for the saved result.')
-
-args = parser.parse_args()
 
 dream_img = run_deep_dream_simple(img=load_img(args.input_image_path,
                                                max_dim=500), 
