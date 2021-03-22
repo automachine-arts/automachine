@@ -2,9 +2,9 @@
 
 :construction: Work in Progress - Check Back Later !
 
-:computer: On the web : https://easternbloc.ca/en/lab/workshops/machine-learning-an-introduction-with-python
+This machine learning for the arts workshop is happening again in May 2021! :tada:
 
-:calendar: On Facebook : https://www.facebook.com/events/608059859997028/
+:computer: On the web : https://easternbloc.ca/en/lab/workshops/machinelearning2021-eng
 
 ---
 
@@ -12,9 +12,9 @@
 
 :construction: En cours de préparation - revenez plus tard !
 
-:computer: Sur l'Internet : https://easternbloc.ca/fr/laboratoire/ateliers/machine-learning-python
+Cet atelier sur l'apprentissage machine pour les arts aura lieu une seconde fois en mai 2021 ! :tada:
 
-:calendar: Sur Facebook : https://www.facebook.com/events/608059859997028/
+:computer: Sur l'Internet : https://easternbloc.ca/fr/laboratoire/ateliers/machinelearning2021-fr
 
 ---
 
