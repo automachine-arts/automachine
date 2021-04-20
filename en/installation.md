@@ -1,4 +1,3 @@
-
 # Environment Setup
 
 ## TL;DR
@@ -87,4 +86,50 @@ Finally, you can install Transformers by running, in the Terminal, the following
  After the workshop, to remove the created conda environment, run `conda remove --name automachine --all` in your terminal.
 
  To uninstall miniconda, here is the official doc: http://docs.continuum.io/anaconda/install.html#id6
+ 
+ 
+-----------
+ 
+# Helpful Commands for the Terminal
+
+  `<TAB>` : pressing tab at anytime will automatically complete something you've started typing
+    for example, to change to a new directory called 'automachine' you can type "cd aut<TAB>" 
+    and it will be completed for you
+  
+  `<UP ARROW>` : pressing the up arrow will bring up your previous command.
+
+##  Windows
+
+  `dir` : print the contents of the current directory
+
+  `cd <FOLDER NAME>` : change current directory to the named folder
+
+
+##  Linux/Mac OSX
+
+  `ls` : print the contents of the current directory
+
+  `cd <FOLDER NAME>` : change current directory to the named folder
+
+  `sh <SCRIPT>.sh` : execute the script
+
+
+# GIT commands
+
+  `git checkout <URL>` : make a local copy of a directory containing source code on a server
+
+  `git pull` : update the local copy with the changes on the server
+
+  `git diff` : show me the changes I have made locally
+
+
+# CONDA commands
+
+  `conda create <ENVIRONMENT>` : create a new environment
+
+  `conda install <PACKAGE> -c <HOST>` : install the package so it can be included and used in your 
+    python code, sometimes a host (location to install from) is specified, but it is usually optional
+
+  `conda activate <ENVIRONMENT>` : change to the named virtual environment, which will have it's own version
+    of python installed (eg, 3.7, 3.8) and it's own set of packages available to use in your python code
 
