@@ -31,7 +31,7 @@ Virtual environments are self-contained programming environments that can have d
 
 After installing conda, it may need to be initialized by running `conda init bash` (if you're not in windows) in your terminal window. By default, miniconda installs a base environment that has Python installed. In your terminal, run `conda activate` to activate this base environment. Verify that Python has been installed by running `python` in your terminal. This will start the Python interactive shell:
 
- ```
+```
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -42,12 +42,12 @@ Type "help", "copyright", "credits" or "license" for more information.
  
  To install TensorFlow and PyTorch in a custom conda environment, named 'automachine', follow these steps in your terminal:
 
- ```
+```
 conda create -n automachine
 conda activate automachine
 conda install tensorflow
 conda install pytorch torchvision -c pytorch
- ```
+```
 
  Verify that both TensorFlow and PyTorch have been correctly installed by first launching Python in a Terminal window. Then, enter the following code : `import torch` and after,`import tensorflow as tf`. You will create variables by entering the following code in the Terminal window:
 
@@ -59,7 +59,7 @@ You will then check that the variables have been created by entering their names
 
 You should obtain something similar to this:
 
- ```
+```
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -72,7 +72,7 @@ tensor([[1, 2, 3],
 >>> y = tf.constant([[1, 2, 3], [4, 5, 6]])
 >>> y
 <tf.Tensor: id=0, shape=(2, 3), dtype=int32, numpy=array([[1, 2, 3],[4, 5, 6]], dtype=int32)>
- ```
+```
 
 Exit the Python interpreter by entering `exit()` and pressing Enter.
 
