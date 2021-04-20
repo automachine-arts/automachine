@@ -29,7 +29,7 @@ Les environnements virtuels sont des environnements de programmation autonomes q
 
 Après l'installation de `miniconda`, il est possible que ce soit nécessaire de l'initialiser en roulant `conda init bash` dans la fenêtre de terminal. Par défaut, `miniconda` installe un environnement où Python est installé. Dans votre terminal, exécutez l'instruction `conda activate` pour rendre actif cet environnement de base. Vérifiez que Python a été installé en exécutant l'instruction `python` dans la fenêtre de terminal. Ceci lancera Python et le texte suivant s'affichera dans la fenêtre de terminal:
 
- ```
+```
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -40,12 +40,12 @@ Pour sortir de l'interaction avec Python, exécutez la commande `exit()`.
 
 Pour installer TensorFlow et PyTorch dans un environnement spécifique, nommé 'automachine', suivez les étapes suivantes dans votre terminal:
 
- ```
+```
 conda create -n automachine
 conda activate automachine
 conda install tensorflow
 conda install pytorch torchvision -c pytorch
- ```
+```
 
 Vérifiez que TensorFlow et PyTorch ont bel et bien été installés en suivant les étapes suivantes. Commencez par lancer Python à partir de la fenêtre de terminal. Ensuite, nous allons importer PyTorch avec la ligne de code `import torch`, et de même pour TensorFlow avec `import tensorflow as tf`. Ensuite, créez des variables en entrant le code suivant dans la fenêtre Terminal:
 
@@ -58,7 +58,7 @@ Enfin, vérifiez que les variables ont été créés en entrant leurs noms et en
 
 Vous devriez obtenir quelque chose comme ceci:
 
- ```
+```
  Python 3.7.5 (default, Oct 25 2019, 10:52:18) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -71,7 +71,7 @@ tensor([[1, 2, 3],
 >>> y = tf.constant([[1, 2, 3], [4, 5, 6]])
 >>> y
 <tf.Tensor: id=0, shape=(2, 3), dtype=int32, numpy=array([[1, 2, 3],[4, 5, 6]], dtype=int32)>
- ```
+```
 
 Maintenant, nous allons sortir de l'interprète Python: entrez `exit()` et appuyez sur Enter.
 
