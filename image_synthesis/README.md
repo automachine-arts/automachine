@@ -8,4 +8,4 @@ You can also open the Jupyter notebook version on Google Colab: [click to open t
 
 Cet exemple est disponible par l'entremise de programmes que vous pouvez exécuter localement.
 
-Vous pouvez aussi ouvrir le notebook Jupyter sur Google Colab: [cliquez pour ouvrir l'exemple DeepDream dans Google Colab](https://colab.research.google.com/github/automachine-arts/automachine/blob/main/image_synthesis/deepdream.ipynb).
+Vous pouvez aussi ouvrir le notebook Jupyter sur Google Colab: [cliquez pour ouvrir l'exemple DeepDream dans Google Colab](https://colab.research.google.com/github/automachine-arts/automachine/blob/main/image_synthesis/deepdream_fr.ipynb).
