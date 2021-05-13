@@ -9,4 +9,3 @@ You can also open the Jupyter notebook version on Google Colab: [click to open t
 Cet exemple est disponible en fichiers de code à exécuter localement
 
 Vous pouvez aussi ouvrir le Jupyter notebook sur Google Colab : [cliquez pour ouvrir l'exemple de génération de texte sur Google Colab](https://colab.research.google.com/github/automachine-arts/automachine/blob/main/text_generation/text_generation.ipynb).
- 

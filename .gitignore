@@ -1,7 +1,7 @@
 *.sw[a-z]
 .DS_Store
 .vscode
-
+*.pdf
 *.jpg
 *.png
 *.xcf
